@@ -1,15 +1,15 @@
 Сравнение создания массивов (списков) и организации стеков в Java, Python и C++ (Клементьев Ярослав, УИБО-10-24)
 Программы для создания массивов/списков в Python, Java и C++
 1. Python
-python
-# Создание списка (динамический массив)
-my_list = [1, 2, 3, 4, 5]  # Проинициализированный список
-empty_list = []            # Пустой список
-mixed_list = [1, "hello", 3.14, True]  # Разные типы данных
+#python
+    # Создание списка (динамический массив)
+    my_list = [1, 2, 3, 4, 5]  # Проинициализированный список
+    empty_list = []            # Пустой список
+    mixed_list = [1, "hello", 3.14, True]  # Разные типы данных
 
 # Добавление элементов
-my_list.append(6)      # Добавление в конец
-my_list.insert(0, 0)   # Вставка на позицию 0
+    my_list.append(6)      # Добавление в конец
+    my_list.insert(0, 0)   # Вставка на позицию 0
 
 # Удаление элементов
 my_list.pop()          # Удалить последний элемент
@@ -28,30 +28,13 @@ print("Python list:", my_list)
 Индексация с нуля, поддержка отрицательных индексов.
 
 2. Java
-java
+Java
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.LinkedList;
 
-public class Main {
-    public static void main(String[] args) {
-        // Массив фиксированного размера
-        int[] fixedArray = new int[5];               // Пустой массив на 5 элементов
-        int[] initializedArray = {1, 2, 3, 4, 5};   // Инициализированный массив
-
-        // Динамический список (ArrayList)
-        ArrayList<Integer> dynamicList = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5));
-        
-        // Добавление элементов
-        dynamicList.add(6);       // Добавление в конец
-        dynamicList.add(0, 0);    // Вставка на позицию 0
-
-        // Удаление элементов
-        dynamicList.remove(dynamicList.size() - 1);  // Удалить последний
-        dynamicList.remove(Integer.valueOf(3));      // Удалить первое вхождение 3
-
-        System.out.println("Java ArrayList: " + dynamicList);
-    }
-}
+ArrayList<Integer> arrayList = new ArrayList<>();  // на основе массива
+LinkedList<Integer> linkedList = new LinkedList<>(); // двусвязный список
+linkedList.add(5);  // добавление элемента
 Особенности:
 
 Массивы фиксированы при создании.
@@ -64,32 +47,11 @@ ArrayList — динамический аналог, требует импорт
 
 3. C++
 cpp
-#include <iostream>
 #include <vector>
 using namespace std;
 
-int main() {
-    // Массив фиксированного размера
-    int fixedArray[5] = {1, 2, 3, 4, 5};  // Инициализированный массив
-
-    // Динамический вектор
-    vector<int> dynamicVector = {1, 2, 3, 4, 5};
-
-    // Добавление элементов
-    dynamicVector.push_back(6);           // Добавление в конец
-    dynamicVector.insert(dynamicVector.begin(), 0);  // Вставка в начало
-
-    // Удаление элементов
-    dynamicVector.pop_back();             // Удалить последний
-    dynamicVector.erase(dynamicVector.begin() + 2);  // Удалить элемент на позиции 2
-
-    // Вывод
-    cout << "C++ vector: ";
-    for (int num : dynamicVector) {
-        cout << num << " ";
-    }
-    return 0;
-}
+vector<int> list = {1, 2, 3, 4};
+list.push_back(5);  // добавление в конец
 Особенности:
 
 Массивы фиксированного размера (синтаксис в стиле C).
