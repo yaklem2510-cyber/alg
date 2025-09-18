@@ -1,24 +1,23 @@
 Сравнение создания массивов (списков) и организации стеков в Java, Python и C++ (Клементьев Ярослав, УИБО-10-24)
 Программы для создания массивов/списков в Python, Java и C++
-1. Python
-#python
-    # Создание списка (динамический массив)
-    my_list = [1, 2, 3, 4, 5]  # Проинициализированный список
-    empty_list = []            # Пустой список
-    mixed_list = [1, "hello", 3.14, True]  # Разные типы данных
+#Python
+ # Создание списка (динамический массив)
+    num = [1, 2, 3, 4, 5]
 
-# Добавление элементов
-    my_list.append(6)      # Добавление в конец
-    my_list.insert(0, 0)   # Вставка на позицию 0
+    # Добавление элементов
+    num.append(6)
 
-# Удаление элементов
-my_list.pop()          # Удалить последний элемент
-my_list.remove(3)      # Удалить первое вхождение элемента 3
+    # Удаление элементов
+    num.pop()
 
-# Вывод
-print("Python list:", my_list)
-Особенности:
-
+    # Создание стека с помошью deque
+    from collections import deque
+    stack_deque = deque()
+    stack_deque.append('a')  # Добавление элемента в стек (push)
+    stack_deque.append('b')  
+    stack_deque.append('c')  
+    popped = stack_deque.pop()  # Удаление и получение верхнего элемента (pop)
+    
 Динамический размер.
 
 Может содержать элементы разных типов.
@@ -27,14 +26,40 @@ print("Python list:", my_list)
 
 Индексация с нуля, поддержка отрицательных индексов.
 
-2. Java
-Java
-import java.util.ArrayList;
-import java.util.LinkedList;
+# Java
+    import java.util.ArrayList;
+    import java.util.List;
+    import java.util.Stack;
 
-ArrayList<Integer> arrayList = new ArrayList<>();  // на основе массива
-LinkedList<Integer> linkedList = new LinkedList<>(); // двусвязный список
-linkedList.add(5);  // добавление элемента
+    public class Main {
+        public static void main(String[] args) {
+        
+            // Создание ArrayList (динамического массива)
+            List<Integer> myList = new ArrayList<>();
+            myList.add(1);  // Добавление элемента
+            myList.add(2);  // 
+            myList.add(3);  // 
+            myList.add(4);  // 
+            myList.add(5);  // 
+        
+            // Добавление элемента в конец списка
+            myList.add(6);
+        
+            // Удаление последнего элемента
+            myList.remove(myList.size() - 1);
+        
+            // Создание стека
+            Stack<Integer> stack = new Stack<>();
+        
+            // Добавление элементов в стек (push)
+            stack.push(10);
+            stack.push(20);
+            stack.push(30);
+        
+            // Удаление и получение верхнего элемента из стека (pop)
+            int popped = stack.pop();
+        }
+    }
 Особенности:
 
 Массивы фиксированы при создании.
@@ -45,13 +70,33 @@ ArrayList — динамический аналог, требует импорт
 
 Примитивные типы (например, int) требуют использования классов-оберток (например, Integer) в ArrayList.
 
-3. C++
-cpp
-#include <vector>
-using namespace std;
+# C++
+    #include <vector>
+    #include <stack>
+    using namespace std;
 
-vector<int> list = {1, 2, 3, 4};
-list.push_back(5);  // добавление в конец
+    int main() {
+        // Создание вектора (динамического массива)
+        vector<int> my_vector = {1, 2, 3, 4, 5};
+    
+        // Добавление элемента в конец вектора
+        my_vector.push_back(6);
+    
+        // Удаление последнего элемента
+        my_vector.pop_back();
+    
+        // Создание стека
+        stack<int> my_stack;
+    
+        // Добавление элементов в стек (push)
+        my_stack.push(10);
+        my_stack.push(20);
+        my_stack.push(30);
+    
+        // Удаление верхнего элемента из стека (pop)
+        my_stack.pop();
+    
+    }
 Особенности:
 
 Массивы фиксированного размера (синтаксис в стиле C).
